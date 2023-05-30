@@ -1,0 +1,103 @@
+/* basic reset:                  */
+/* universal selector, selects all elements on page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box; /*margin and padding no longer added to margin and padding we specify for a box */
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgb(48, 33, 33);
+}
+
+
+
+.container {
+    margin: 1% 2% 1% 2%;
+    display: flex;
+    flex-direction:column;
+    flex-grow: 0.05;
+    flex-wrap: wrap;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: right;
+}
+
+button, .onClickButton {
+    font-size: medium;
+    padding: 0% 1% 0% 1%;
+}
+
+.inputBox {
+    width: 60px;
+}
+
+.header {
+    background-color: rgba(91, 93, 186, 0.914);
+    color: white;
+    /* top border code */
+    border-top: solid;
+    border-color: rgba(126, 128, 225, 0.916);
+}
+
+.child {
+    padding: 1% 1% 1% 1%;
+    margin: 1% 0% 1% 0%;
+    background-color: bisque;
+}
+
+/* rounds borders */
+.child, .header {
+    border-radius: 5px;
+}
+
+
+.indented {
+    margin: 1% 0% 1% 10%;
+}
+
+
+/* together these control help buttons */
+.help {
+    display: none;
+    text-align: justify;
+    max-width: 35rem;
+    font-size: 14px;
+}
+
+.visible {
+    display: block;
+}
+/* ----------------------------------- */
+
+.silicaDensity input, .silicaDensity, .help, .resetButton {
+    color: rgb(80, 80, 80);
+}
+
+/* intended to make main content boxes display as column on a phone screen */
+@media only screen and (max-width: 900px) {
+    .main-content-box {
+        flex-direction: column;
+    }
+  }
