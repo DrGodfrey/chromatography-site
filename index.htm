@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <title>Flash Column Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="helpButton.js"></script>
+    <script src="script.js" defer></script>
+    <!-- solvents.js is a script from an incomplete project I was considering, please ignore for now! -->
+    <!-- <script src="solvents.js" defer></script> -->
+
+</head>
+
+<body>
+    <div class="header center">
+        <h1>Flash Column Planner</h1>
+    </div>
+
+    <div class="center main-content-box">
+        <div class="container inputs">
+            <div class="header"><h2>Inputs</h2></div>
+            <div class="child container">
+                <form id="form" action="/" method="GET">
+                    <div>
+                        <label for="massOfSampleGrams">Mass of sample (g)</label>
+                        <input id="massOfSampleGrams" name="massOfSampleGrams" type="number" value="1" required class="inputBox">
+                        <button onclick="helpButton(`sampleHelp`)">?</button>
+                        <p class="help" id="sampleHelp">How much sample are you planning to load onto your column in grams?</p>
+                    </div>
+                    <div>
+                        <label for="timesSilica">Weight of silica to sample (10&ndash;50&times;)</label>
+                        <input id="timesSilica" name="timesSilica" type="number" value="20" min="1" max="100" required class="inputBox">
+                        <button onclick="helpButton(`silicaMultiple`)">?</button>
+                        <p class="help" id="silicaMultiple">Generally you should use somewhere in the range 10&ndash;50 times as much silica as you have sample (by weight). 20&ndash;25&times; should be enough for most seperations, but more can offer marginal benefit for more challenging seperations (up to about 50&times;). As a rough rule of thumb, you need 4&times; as much silica to get 2&times; as good seperation, so the benefits of excessive silica fall off rapidly.</p>
+                    </div>
+                    <div>
+                        <label for="rf">Rf</label>
+                        <input id="rf" name="rf" type="number" value="0.3" min="0" max="1" class="inputBox">
+                        <button onclick="helpButton(`rfHelp`)">?</button>
+                        <p class="help" id="rfHelp">Rf for the target compound in your column. Generally an Rf in the range 0.20&ndash;0.35 is recommended. Rfs on the lower end of the range are likely to allow better seperation,  but require more solvent and will lead to more diluted fractions - which sometimes makes identifying your products & impurities more challenging. Although ideally avoided, for trickier seperations very low Rfs (0.15-0.2) are probably a better option than excessive silica usage.</p>
+                    </div>
+                    <div class="silicaDensity">
+                        <label for="silicaDensity">Optional: adjust default silica denisty (g/mL)</label>
+                        <input id="silicaDensity" name="silicaDensity" type="number" value="0.4" min="0" max="1" class="inputBox">
+                        <button onclick="helpButton(`silicaDensityHelp`)">?</button>
+                        <p class="help" id="silicaDensityHelp">I've seen seen a range of estimates for the density of silica on the order of 0.3&ndash;0.5 g/mL, so 0.4 g/mL seems like a fairly safe placeholder until I get more feedback. The exact silica density shouldn't have a substantial effect on the outcome of your column (especially if you choose to measure the silica by volume), I've nonetheless included an option to adjust this for anyone who knows the specific value for the silica they're working with.</p>
+                    </div>
+                    <button type="reset" class="resetButton">Reset</button>
+                    <input id="clickMe" type="button" value="Run" onclick="onClickFunction();" class="onClickButton"/>
+                </form>
+            </div>
+            
+        </div>
+
+        <div class="container">
+            <div class="header"><h2 id="yourColumnTitle">Example Column</h2></div>
+            <div class="output" id="output"></div>
+        </div>
+    </div>
+    
+    <!-- code below is from an incomplete project I was working on, please ignore for now! -->
+    <!--    
+    <div class="header center">
+        <h1>Solvent Selection</h1>
+    </div>
+
+    <div class="center main-content-box">
+        <div class="container inputs">
+            <div class="header"><h2>Inputs</h2></div>
+            <div class="child container">
+                <form id="form" action="/" method="GET">
+                    <div>
+                        <label for="solventSelection">Solvent</label>
+                        <select id="solventSelection" name="solventSelection" class="inputBox">
+                        </select>
+                        <button onclick="helpButton(`solventSelectionHelp`)">?</button>
+                        <p class="help" id="solventSelectionHelp">Placeholder</p>
+                    </div>
+                    <button type="reset" class="resetButton">Reset</button>
+                    <input id="clickMe" type="button" value="Run" onclick="onClickFunction();" class="onClickButton"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="header"><h2>Solvent Outputs</h2></div>
+            <div class="output" id="solventOutput">
+                <div class="child"></div>
+            </div>
+        </div>
+    </div>
+    -->
+
+</body>
+</html>
+
+
+
+
